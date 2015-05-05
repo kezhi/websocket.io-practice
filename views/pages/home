@@ -1,0 +1,13 @@
+div.container(ng-controller="ChatCtrl")
+    div.top-area
+        h1= title
+        p 欢迎来到 #{title}
+    div.chat-area(auto-scroll-to-bottom='')
+        div.chat-left.chat-list(ng-repeat="message in messages")
+            p.send-time 18:00
+            p.chat-content kirk:{{message}}
+    form(ng-controller="ChatSendCtrl")
+        div.send-form
+            div.send-form-inner
+                textarea.input.send-text(ng-model="newMessage" ctrl-enter-break-line="createMessage()" placeholder="请输入信息")
+                input.input.send-btn(type="button" value="发送")
