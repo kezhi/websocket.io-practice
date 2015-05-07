@@ -6,7 +6,10 @@ body {
   	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 	background: #efefef;
 }
-
+input{
+	-webkit-appearance: none;
+	outline:none
+}
 a {
   color: #00B7FF;
 }
@@ -55,6 +58,7 @@ a {
 	padding: 3px;
 	border: 1px solid #ccc;
 	border-radius: 5px ;
+	resize:none;
 }
 .send-btn{
 	border: 1px solid #ccc;
