@@ -1,0 +1,9 @@
+div.container
+    div.login-area
+        div.login-line
+            input.input-style(ng-model="user.name" placeholder="请输入姓名")
+        div.login-line
+            input.input-style(ng-model="user.password" placeholder="请输入密码")
+        div.login-line
+            input.submit(type="button" value="登 录" ng-click="login(user)")
+

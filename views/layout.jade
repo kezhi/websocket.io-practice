@@ -2,16 +2,16 @@ doctype html5
 html
     head
         title= title
+        base(href="/")
         meta(name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width")
         link(rel='stylesheet', href='/stylesheets/style.css')
         script(src='/socket.io/socket.io.js')
         script(src='/lib/angular.js')
-        //script(src='/lib/angular-route.js')
-        script(src='/javascripts/controllers.js')
+        script(src='/lib/angular-route.js')
+        script(src='/javascripts/router.js')
         script(src='/javascripts/service.js')
         script(src='/javascripts/directive.js')
+        script(src='/javascripts/controllers.js')
 
-        //script(src='/javascripts/router.js')
-        //script(src='/javascripts/chatjs.js')
     body(ng-app="chatApp")
         block content

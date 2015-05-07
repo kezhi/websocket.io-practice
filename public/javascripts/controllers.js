@@ -1,4 +1,4 @@
-angular.module('chatApp', [])
+angular.module('chatApp')
 .controller('ChatCtrl',function($scope,socket){
 		$scope.messages = [];
 		socket.on('messages.read', function (messages) {
@@ -19,6 +19,26 @@ angular.module('chatApp', [])
 		$scope.sendMsg = function(){
 			socket.emit('messages.create', $scope.newMessage);
 			$scope.newMessage = ''
+		}
+	})
+.controller('LoginCtrl',function($scope,$location,socket){
+		$scope.user = {
+			name:'',
+			password:''
+		}
+		$scope.login = function(user){
+			if(!user.name&&!user.password){
+				alert('用户名或密码不能为空！')
+			}else{
+				if(user.name=='kezhi'&&user.password=='111111'){
+					$location.path('home');
+				}else {
+					alert('用户名或密码错误！');
+					user.name='';
+					user.password='';
+				}
+			}
+
 		}
 	})
 

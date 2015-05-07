@@ -1,38 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="chatApp">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+      <meta charset="utf-8">
+	  <base href="/">
+	  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 	  <link rel="stylesheet" href="/stylesheets/style.css"/>
 	  <script src="/socket.io/socket.io.js"></script>
 	  <script src="/lib/angular.js"></script>
-	  <!--script(src='/lib/angular-route.js')-->
-	 <!-- <script src="/javascripts/controllers.js"></script>
+	  <script src="/lib/angular-route.js"></script>
+
+	  <script src="/javascripts/router.js"></script>
 	  <script src="/javascripts/service.js"></script>
-	  <script src="/javascripts/directive.js"></script>-->
+	  <script src="/javascripts/directive.js"></script>
+	  <script src="/javascripts/controllers.js"></script>
+
   </head>
-  <body ng-app="chatApp">
+  <body>
 	  <div class="top-area">
 		  <h1></h1>
-		  <p>欢迎来到 </p>
+		  <p>欢迎来到 聊吧(html)</p>
 	  </div>
-	  <div ng-controller="ChatCtrl" class="container">
-		  <div auto-scroll-to-bottom class="chat-area">
-			  <div ng-repeat="message in messages" class="chat-left chat-list">
-				  <p class="send-time">18:00</p>
-				  <p class="chat-content">kirk:aa{{message}}</p>
-			  </div>
-		  </div>
+	  <div ng-view>
 
-		  <form ng-controller="ChatSendCtrl">
-			  <div class="send-form">
-				  <div class="send-form-inner">
-					  <textarea ng-model="newMessage" ctrl-enter-break-line="createMessage()" placeholder="请输入信息" class="input send-text"></textarea>
-					  <input type="button" value="发送" class="input send-btn"/>
-				  </div>
-			  </div>
-		  </form>
 	  </div>
-	  <script src="/javascripts/chatjs.js"></script>
+	  <!--<script src="/javascripts/chatjs.js"></script>-->
   </body>
 </html>

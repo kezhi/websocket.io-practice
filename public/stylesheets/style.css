@@ -62,3 +62,28 @@ a {
 	background: #fff;
 	text-align: center;
 }
+.login-area{
+	text-align: center;
+	width: 300px;
+	margin: 50px auto;
+}
+.login-line{
+	margin-bottom: 10px;
+}
+.input-style{
+	border: 1px solid #ccc;
+	border-radius: 5px ;
+	height: 30px;
+	text-indent: 5px;
+	width: 200px;
+}
+.submit{
+	border: none;
+	border-radius: 5px ;
+	background: #5890AD;
+	text-align: center;
+	height: 30px;
+	width: 200px;
+	margin-top: 10px;
+	color: #fff;
+}

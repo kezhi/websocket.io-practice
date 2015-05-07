@@ -1,0 +1,17 @@
+<div class="container">
+	<div auto-scroll-to-bottom class="chat-area">
+		<div ng-repeat="message in messages track by $index" class="chat-left chat-list">
+			<p class="send-time">18:00</p>
+			<p class="chat-content">kirk:{{message}}</p>
+		</div>
+	</div>
+
+	<form ng-controller="ChatSendCtrl">
+		<div class="send-form">
+			<div class="send-form-inner">
+				<textarea ng-model="newMessage" ctrl-enter-break-line="createMessage()" placeholder="请输入信息" class="input send-text"></textarea>
+				<input ng-click="sendMsg()" type="button" value="发送" class="input send-btn"/>
+			</div>
+		</div>
+	</form>
+</div>
