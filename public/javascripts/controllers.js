@@ -21,13 +21,26 @@ angular.module('chatApp')
 			$scope.newMessage = ''
 		}
 	})
-.controller('LoginCtrl',function($scope,$location,socket){
+.controller('LoginCtrl',function($scope,$location,$http,socket){
 		$scope.user = {
 			name:'',
 			password:''
-		}
+		};
 		$scope.login = function(user){
-			if(!user.name&&!user.password){
+			$http({
+				url:'/api/login',
+				method:'POST',
+				data:{
+					name:user.name
+				}
+			}).success(function (user) {
+				alert('登录成功');
+				$scope.$emit('login',user);
+				$location.path('/home');
+			}).error(function (err) {
+				alert('登录失败！');
+			});
+			/*if(!user.name&&!user.password){
 				alert('用户名或密码不能为空！')
 			}else{
 				if(user.name=='kezhi'&&user.password=='111111'){
@@ -37,7 +50,7 @@ angular.module('chatApp')
 					user.name='';
 					user.password='';
 				}
-			}
+			}*/
 
 		}
 	})

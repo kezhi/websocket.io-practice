@@ -7,6 +7,11 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var session = require('express-session');
+
+var Controllers = require('./controllers');
+
+
 
 var app = express();
 
@@ -24,6 +29,42 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+
+app.use(session({
+	secret: 'websocket.io-practice',
+	cookie:{
+		maxAge:60*1000
+	}
+}));
+app.get('/api/validate', function (req,res) {
+	_userId = req.session._userId
+	if(_userId){
+		Controllers.User.findUserById(_userId, function (err,user) {
+			if(err){
+				res.json(401,{msg:err})
+			}else{
+				res.json(user)
+			}
+		})
+	}else{
+		res.json(401,null)
+	}
+});
+app.post('/api/login', function (req,res) {
+	name = req.body.name
+	if(name){
+		Controllers.User.findByName(email, function (err,user) {
+			if(err){
+				res.json(500,{msg:err})
+			}else{
+				req.session._userId = user._id
+				res.json(user)
+			}
+		})
+	}else{
+		res.json(403)
+	}
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
