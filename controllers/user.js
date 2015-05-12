@@ -6,8 +6,8 @@ exports.findUserById = function (_userId,callback) {
 	db.User.findOne({
 		_id:_userId
 	},callback)
-}
-exports.findByName = function (name,callback) {
+};
+exports.findByNameOrCreate = function (name,callback) {
 	db.User.findOne({
 		name:name
 	}, function (err,user) {
@@ -19,4 +19,13 @@ exports.findByName = function (name,callback) {
 			user.save(callback)
 		}
 	})
-}
+};
+exports.online = function(_userId, callback) {
+	db.User.findOneAndUpdate({
+		_id: _userId
+	}, {
+		$set: {
+			online: true
+		}
+	}, callback)
+};

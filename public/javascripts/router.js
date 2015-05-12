@@ -1,6 +1,6 @@
 angular.module('chatApp',['ngRoute'])
 	.run(function ($window, $http, $rootScope, $location) {
-		$window.moment.lang('zh-cn');
+		//$window.moment.lang('zh-cn');
 		$http({
 			url: '/api/validate',
 			method: 'GET'
